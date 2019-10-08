@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript | Homeworks</title>
+</head>
+<body style="margin: 25px;">
+    <h2 style="text-align: center">Javascript Homework 2</h2>
+
+<hr>
+
+<h2>Условные операторы</h2>
+    <h4>Questions</h4>
+    <ul>
+        <li>
+            1. Если а – четное посчитать а*б, иначе а+б<br>
+            1. If a - even count a * b, otherwise a + b
+        </li><br>
+    </ul>
+
+    <h4>Answer</h4>
+        <code>
+            
+            function oddOrEven() { <br>
+                let a = Number(document.getElementById('input_a').value) ;<br>
+                let b = 2;<br>
+                let result;<br>
+                document.getElementById('resultText').innerHTML = result;<br>
+                <br>
+                if (a%b==0) {<br>
+                   result = a*b<br>
+                    console.log(`${a} is even number. Then a*b=${result}.`)<br>
+                } else if (a%b==1) {<br>
+                            result = a+b;<br>
+                            console.log(`${a} is odd number. Then a+b=${result}`);<br>
+                } else { console.log('number not entered by user') }<br>
+                }<br>
+        </code>
+    <p>Below enter any number for assing value.</p>
+    <label for="input_a">Enter <strong>a</strong> value</label>
+    <input type="number" id="input_a" value="5" placeholder="enter any number" >
+    <button id="codeRun" onclick="oddOrEven();">Click to run code.</button>
+
+    <p >Result is: <span id="resultText"></span></p>
+
+<hr>
+    <h4>Questions</h4>
+    <ul>
+        <li>
+            2. Определить какой четверти принадлежит точка с координатами (х, у)<br>
+            2. Determine which quarter the point with coordinates (x, y) belongs to <br>
+        </li><br>
+    </ul>
+
+    <h4>Answer</h4>
+    <p>As shown on image, to find dot A quarter: <br>
+        If B value is +n, C value is +n it is 1 quarter. <br>
+        if B value is -n, C value is +n it is 2 quarter. <br>
+        if B value is -n, C value is -n it is 3 quarter. <br>
+        if B value is +n, C value is -n it is 4 quarter. <br> 
+    </p>
+    
+    <label for="input_x">Enter X coordinate value</label>
+    <input type="number" id="input_x" style="margin-bottom: 10px;"> <br>
+    <label for="input_y">Enter Y coordinate value</label>
+    <input type="number" id="input_y"><br> 
+    <button onclick="quarterFind();" id="coord_submit" style="margin-top: 20px;">Find Quarter</button>
+
+    <p id="dotText"></p><br>
+
+
+
+    <img src="https://younglinux.info/sites/default/files/images/python/Descartes_system_2D.png" alt="x,y circle" style="display: block; margin: 5px;">
+    <br><caption style="display: block">X Y coordinates on circle. Center is 0 point for X and Y</caption> <br><br><br>
+    
+    <code>
+        
+            /* if statemant version */ <br>
+            function quarterFind() { <br>
+                let x = Number(document.getElementById('input_x').value);<br>
+                let y = Number(document.getElementById('input_y').value);<br>
+                <br>
+                // console.log(parseInt(q))<br>
+                <br>
+                if (x &gt; 0 && y &gt; 0) {<br>
+                    document.getElementById('dotText').innerHTML = `The Dot is in 1st quarter.`<br>
+                } else if (x &lt; 0 && y &gt; 0) {<br>
+                    document.getElementById('dotText').innerHTML = `The Dot is in 2nd quarter.`<br>
+                } else if (x &lt; 0 && y &lt; 0) {<br>
+                    document.getElementById('dotText').innerHTML = `The Dot is in 3rd quarter.`<br>
+                } else if (x &gt; 0 && y &lt; 0) {<br>
+                    document.getElementById('dotText').innerHTML = `The Dot is in 4th quarter.`<br>
+                }<br>
+            }<br>
+    
+    <br><br><br>
+    
+        // // Switch case version <br>
+        <br>
+                function quarterFind() {<br>
+                    let x = document.getElementById('input_x').value;<br>
+                    let y = document.getElementById('input_y').value;<br>
+                    <br>
+                    console.log(`x is ${x}, y is ${y}`)<br>
+                    <br>
+                    switch (true) {<br>
+                        case (x &gt; 0 && y &gt; 0):<br>
+                            document.getElementById('dotText').innerHTML = `The Dot is in 1st quarter.`;<br>
+                            console.log('1st quarter');<br>
+                            break;<br>
+                        case (x &lt; 0 && y &gt; 0):<br>
+                            document.getElementById('dotText').innerHTML = `The Dot is in 2nd quarter.`; <br>
+                            console.log('2nd quarter');<br>
+                            break;<br>
+                        case (x &lt; 0 && y &lt; 0):<br>
+                            document.getElementById('dotText').innerHTML = `The Dot is in 3rd quarter.`;<br>
+                            console.log('3rd quarter');<br>
+                            break;<br>
+                        case (x &gt; 0 && y &lt; 0):<br>
+                            document.getElementById('dotText').innerHTML  = `The Dot is in 4th quarter.`;<br>
+                            console.log('4th quarter');<br>
+                            break;<br>
+                        default : document.getElementById('dotText').innerHTML  = `The Dot is in center.`;<br>
+                        }<br>
+                }<br>
+        
+    </code>
+
+<hr>
+    <h4>Question 3</h4>
+    <p> 
+        3. Найти сумму только положительных из трех чисел <br>
+        3. Find the sum of only positives from three numbers <br>
+    </p>
+
+    <h4>Answer</h4>
+    <p>We can use <strong>eval(array.join("+"))</strong> function for addition each element of array. <br>
+        Enter a, b, c. they will be concatnated if num is positive.
+    </p>
+    <label for="num1">Enter positive number</label>
+    <input type="number" id="num1" value="7"> <br><br>
+    <label for="num2">Enter negative number</label>
+    <input type="number" id="num2" value="-3"> <br><br>
+    <label for="num3">Enter any number</label>
+    <input type="number" id="num3" value="2"><br><br>
+    <button id="concatenator" onclick="concatPos();">Concatenate positives</button>
+    <p id="concatText"></p><br><br>
+
+    <code>
+            function concatPos() {<br>
+                <br>
+                let a = document.getElementById('num1').value;<br>
+                let b = document.getElementById('num2').value;<br>
+                let c = document.getElementById('num3').value;<br>
+                <br>
+                let Arr = [a,b,c];<br>
+                console.log(`Default array is ${Arr}`);<br>
+                <br>
+                let posArr = Arr.filter(function(z) {<br>
+                    return z > 0;<br>
+                }); console.log(`Positive array is ${posArr}`);<br>
+                <br>
+                let sum = eval(posArr.join("+"));<br>
+                console.log(`Summary of positive nums is ${sum}`);<br>
+                <br>
+                document.getElementById('concatText').innerHTML = `Total summary of positive numbers is ${sum}`<br>
+            }<br>
+    </code>
+
+    <hr>
+<br><br><h4>Question 4</h4>
+<p>Посчитать выражение макс(а*б*с, а+б+с)+3 (ps: Тут что то не так? что означает 3?)<br>
+    Calculate maximum of (abc, a+b+c)+3 <br>
+</p>
+
+<h4>Answer</h4>
+    <p>calculate if abc is great than a+b+c</p>
+
+
+    <label for="max_num1">Enter a</label>
+    <input type="number" id="max_num1" value="6"> <br><br>
+
+    <label for="max_num2">Enter b</label>
+    <input type="number" id="max_num2" value="17"> <br><br>
+
+    <label for="max_num2">Enter c</label>
+    <input type="number" id="max_num3" value="3"><br><br>
+
+    <button id="compare_max" onclick="compareMax();">Compare max values</button>
+
+    <p id="compareMaxText"></p><br><br>
+
+<hr>
+
+<h4>Question 5</h4>
+<p> 5. Написать программу определения оценки студента по его рейтингу, на основе следующих правил <br>
+    5. Write a program for determining the student’s grade according to his rating, based on the following rules <br>
+   </p>
+<table style="text-align: center;">
+    <tr>
+        <th>Rating</th>
+        <th>Grade</th>
+    </tr>
+    
+    <tr>
+        <td>
+            <ul>
+                <li>0-19</li>
+                <li>20-39</li>
+                <li>40-59</li>
+                <li>60-74</li>
+                <li>75-89</li>
+                <li>90-100</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>E</li>
+                <li>F</li>
+                <li>D</li>
+                <li>C</li>
+                <li>B</li>
+                <li>A</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h4>Answer</h4>
+<code>
+        // switch case <br>
+<br>
+        function findGrade() {<br>
+            let rating = Number(document.getElementById('rating_input').value);<br>
+            switch(true) {<br>
+                case (rating>0 && rating &lt;=19) :<br>
+                    document.getElementById('gradeText').innerHTML = `E`<br>
+                    break;<br>
+                case (rating>19 && rating &lt;=39) :<br>
+                    document.getElementById('gradeText').innerHTML = `F`<br>
+                    break;<br>
+                case (rating>39 && rating &lt;=59) :<br>
+                    document.getElementById('gradeText').innerHTML = `D`<br>
+                    break;<br>
+                case (rating>59 && rating &lt; =74) :<br>
+                    document.getElementById('gradeText').innerHTML = `C`<br>
+                    break;<br>
+                case (rating>74 && rating &lt;=89) :<br>
+                    document.getElementById('gradeText').innerHTML = `B`<br>
+                    break;<br>
+                case (rating>90 && rating &lt; =100) :<br>
+                    document.getElementById('gradeText').innerHTML = `A`<br>
+                    break;<br>
+                case (rating&lt;0) : <br>
+                    document.getElementById('gradeText').innerHTML = `Rating is between 0-100. Enter positive number.`
+                    break;
+            }
+        }
+</code><br><br><br>
+
+<label for="rating_input">Enter rating of student</label> <br>
+<input type="number" id="rating_input" value="51" placeholder="enter number between 0-100"> <br><br>
+<button id="find_grade" onclick="findGrade();">Find Students Grade</button> <br><br>
+
+<p >Student's Grade is: <span id="gradeText">&nbsp;</span></p> <br> <br><br>
+<hr>
+
+<h2>Циклы</h2><br><br><br>
+
+<h4> 1st Question</h4>
+<p>Найти сумму четных чисел и диапазоне от 1 до 99. <br>
+    Find summary of even number between 1 to 99. <br>
+</p> <br>
+
+<h4>Answer</h4>
+<code>
+    function sumOfEven() { <br>
+        let sum = 0; <br>
+        for (let i=0; i &lt;=100;i+=2) <br>
+            x+=i;<br>
+        console.log(x) <br>
+    }; <br>
+</code>
+
+<p>Find summary of even number between 1-99</p>
+<p>Answer is: <span id="sumText"></span></p> <br>
+<button id="sumFinder" onclick="sumOfEven();">Find</button>
+
+
+<br><br><br><br>
+<h4>Try your own</h4>
+<label for="lower_value">Enter lower value</label>
+<input type="number" id="lowerValue"><br><br>
+<label for="higher_value">Enter higher value</label>
+<input type="number" id="higherValue"> <br><br>
+
+<p>Summarized even numbers of your interval is: <span id="sumUserText"></span></p>
+<button id="sumEvenUsers" onclick="sumOfEven2();">Summarize Evens</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -263,7 +263,7 @@ const reverseArray = array => {
     for ( let i= array.lenght-1; i>=0; i-- ) {
         result[index] = array[i];
         index++;
-// we can use result[result.length] = array[i]
+// we can use result[result.length] = array[i] - 
     }
     return result;
 }

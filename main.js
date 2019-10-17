@@ -18,6 +18,8 @@ function oddOrEven() {
  };
 
  //short version
+ let a;
+ let b;
  if(!(a%2)) {
      result=a+b;
  } else { result = a*b;
@@ -165,7 +167,9 @@ function findGrade() {
 }
 
 
-/* 6 question */
+/* Loop  */
+
+//1 question
 
 // summarize between 0-100.
 function sumOfEven() {
@@ -204,12 +208,48 @@ console.log(`checking if type of output is number:`,i, typeof i,sum2,typeof sum2
     //     i+=2;};
     // document.getElementById('sumUserText').innerHTML = `${sum2}`;}
 
+
+
+// 2nd question - Loop
+//Check if is prime
+
+function isPrime(numPrime) {
+
+    console.log(`Function called`)
+    numPrime=document.getElementById('primeInput').value;
+
+    if (numPrime<2) return false;
+    for (let i=2; i<numPrime; i++) {
+        if (numPrime%i==0)
+            return false;
+            document.getElementById('primeReplyBox').innerHTML = `${numPrime} is prime number.`;
+            console.log(numPrime, i, isPrime());
+    };
+    return true;
+    document.getElementById('primeReplyBox').innerHTML = `${numPrime} is composite number.`
+    console.log(numPrime, i, isPrime())
+}; 
+
+
+function isPrime(num) {
+    if(num < 2) return false;
+    for (var i = 2; i < num; i++) {
+        if(num%i==0)
+            return false;
+    }
+    return true;
+}
+
+
+
 //-------------------------------------------------
 //below all replies from classroom discussion. not done by me.
+//-------------------------------------------------
+
 
  // 7th question
     //teacher version
-    // const getIsPOrime = number => {
+    // const getIsPrime = number => {
     //     for (let i=2; i<tempNumber/2; i++) {
     //         if (number% i) {
     //             return false;
@@ -218,52 +258,54 @@ console.log(`checking if type of output is number:`,i, typeof i,sum2,typeof sum2
     //     return true;
     // };
 
-/* 8th */
-const getSquareRoot = number => {
-    let result = 1;
+// /* 8th */
+// const getSquareRoot = number => {
+//     let result = 1;
 
-    for (let i=1; i<number/2; i++) {
-        const difference  = i**2 - number;
-    }
-    if (difference <1 || difference > -1) {
-        return i;
-    } else {
-        result = i;
-    } 
-    return result;
-};
+//     for (let i=1; i<number/2; i++) {
+//         const difference  = i**2 - number;
+//     }
+//     if (difference <1 || difference > -1) {
+//         return i;
+//     } else {
+//         result = i;
+//     } 
+//     return result;
+// };
 
 
-// Circle 6 question
+// // Circle 6 question
 
-const getMirrorNumber = number => {
-    let result = 0;
-    let tempNumber = number;
-    let remainder = 0;
+// const getMirrorNumber = number => {
+//     let result = 0;
+//     let tempNumber = number;
+//     let remainder = 0;
 
-    while (tempNumber>0) {
-        remainder = tempNumber % 10;
-        result += remainder;
-        tempNumber = (tempnumber - remainder) / 10;
-        // if tempNumber will be 0  it returns false and second order will not called
-        tempNumber && (result*=10);
-    }
-    return result;
-};
-
+//     while (tempNumber>0) {
+//         remainder = tempNumber % 10;
+//         result += remainder;
+//         tempNumber = (tempnumber - remainder) / 10;
+//         // if tempNumber will be 0  it returns false and second order will not called
+//         tempNumber && (result*=10);
+//     }
+//     return result;
+// };
 
 
 // const getMinIndex = array => {
 //     let minIndex = 0;
 //     let
 
-const reverseArray = array => {
-    let result = [];
+// const reverseArray = array => {
+//     let result = [];
 
-    for ( let i= array.lenght-1; i>=0; i-- ) {
-        result[index] = array[i];
-        index++;
-// we can use result[result.length] = array[i] - 
-    }
-    return result;
-}
+//     for ( let i= array.lenght-1; i>=0; i-- ) {
+//         result[index] = array[i];
+//         index++;
+// // we can use result[result.length] = array[i] - 
+//     }
+//     return result;
+// }
+
+// continue to hw2
+
